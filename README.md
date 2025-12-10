@@ -245,4 +245,71 @@ Program ini merupakan implementasi yang efisien untuk masalah **Knights Tour** d
 
 
 ## Largest Monotonically Increasing Subsequence
->_Masukkan detail cara kerja dan cara penggunaan program_
+> file: [longest.py](https://github.com/shikajiko/C07-Praktikum-Teori-Graf/blob/main/longest.py)
+
+### Penjelasan 
+
+```python
+
+def all_lis_graph(arr):
+    n = len(arr)
+    if n == 0:
+        return 0, []
+    graph = [[] for _ in range(n)]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] < arr[j]:
+                graph[i].append(j)
+    dp = [1] * n
+    prev = [[] for _ in range(n)]
+    for i in range(n):
+        for j in graph[i]:
+            if dp[i] + 1 > dp[j]:
+                dp[j] = dp[i] + 1
+                prev[j] = [i]
+            elif dp[i] + 1 == dp[j]:
+                prev[j].append(i)
+    max_len = max(dp)
+    ends = [i for i in range(n) if dp[i] == max_len]
+
+```
+Masalah ini dapat diselesaikan menggunakan DAG (Directed Acyclic Graph) dengan Dynamic Programming sebagai optimisasi. Pada awalnya, program membuat representasi graf dari angka yang dimasukkan. Ketika `arr[i]` (angka pada indeks saat ini) kurang dari `arr[j]` (angka pada indeks selanjutnya), tambahkan edge yang menghubungkan `arr[i]` ke `arr[j]`. 
+
+Setelah mendapatkan representasi graf, program akan melakukan _graph traversal_ untuk mencari path terpanjang. Untuk meningkatkan efisiensi, program akan menyimpan ukuran path terpanjang yang mengarah ke sembarang vertex `i` dalam array `dp[i]`, sedangkan `prev[i]` adalah list semua `immediate vertex` yang menuju ke vertex `i` dan akan digunakan untuk melakukan backtracking.
+
+```python
+    def build_sequences(idx):
+        if not prev[idx]:
+            return [[arr[idx]]]
+        sequences = []
+        for p in prev[idx]:
+            for seq in build_sequences(p):
+                sequences.append(seq + [arr[idx]])
+        return sequences
+
+    all_sequences = []
+    for end in ends:
+        all_sequences.extend(build_sequences(end))
+
+    unique_sequences = []
+    seen = set()
+    for seq in all_sequences:
+        tup = tuple(seq)
+        if tup not in seen:
+            seen.add(tup)
+            unique_sequences.append(seq)
+    return max_len, unique_sequences
+```
+
+Terakhir, program melakukan rekonstruksi path dengan backtracking menggunakan `prev` untuk mendapatkan list naik yang terpanjang dan mengeluarkan semua baris yang valid.
+
+### Penggunaan Program
+```
+python3 longest.py
+```
+
+### Input
+<img width="583" height="55" alt="image" src="https://github.com/user-attachments/assets/17bd621d-a0d2-4345-aec8-60495934facb" />
+
+### Output
+<img width="583" height="139" alt="image" src="https://github.com/user-attachments/assets/5fc54635-5df8-49fb-adb0-2b6dc399b95f" />
