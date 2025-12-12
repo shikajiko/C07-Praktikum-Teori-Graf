@@ -187,7 +187,7 @@ Program ini mengimplementasikan solusi dari masalah **Knights Tour** menggunakan
    ```
    Setelah itu, program akan menampilkan UI sebagai berikut:
    <div align="center">
-       <img width="" height="1074" alt="image" src="https://github.com/user-attachments/assets/127acf2c-0ace-42e5-870c-22806988d95d" />
+       <img width="" height="799" alt="image" src="https://github.com/user-attachments/assets/127acf2c-0ace-42e5-870c-22806988d95d" />
    </div>
    
    <br> <br>
