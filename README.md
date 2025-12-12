@@ -181,20 +181,33 @@ Program ini mengimplementasikan solusi dari masalah **Knights Tour** menggunakan
 - Tidak memerlukan pustaka tambahan.
 
 ## Penggunaan
+   Untuk menjalankan program, gunakan perintah:
+   ```
+   python3 knight.py
+   ```
+   Setelah itu, program akan menampilkan UI sebagai berikut:
+   <div align="center">
+       <img width="" height="1074" alt="image" src="https://github.com/user-attachments/assets/127acf2c-0ace-42e5-870c-22806988d95d" />
+   </div>
+   
+   <br> <br>
+   Pada bagian pojok kiri atas, masukkan ukuran papan yang sesuai. Setelah itu, tekan `Buat Rute` untuk meng-generate papan. Program akan menampilkan papan sesuai dengan ukuran yang telah dipilih     <br> <br>
+   
+   <div align="center">
+       <img width="859" height="792" alt="image" src="https://github.com/user-attachments/assets/a97a756c-1e2f-484e-a08d-d81dcbafdc1d" />
+   </div>
+   
+   <br> <br>
+   Selanjutnya, tekan `Play` untuk memulai perjalanan kuda. Kecepatan animasi dapat disesuaikan dengan slider yang ada di atas. Jika ingin mengatur sendiri secara manual, bisa digunakan tombol `Next` dan `Prev` yang berada di sebelah `Play`.
+   <br> <br>
+   
+   <div align="center">
+       <img width="881" height="799" alt="image" src="https://github.com/user-attachments/assets/3d955f1d-b8ac-43fc-93e4-e92d5ff5333e" />
+   </div>
 
-1. **Menjalankan Program**: Setelah menjalankan skrip, pengguna diminta untuk memasukkan ukuran papan catur (N), dengan ketentuan:
-   - N harus lebih besar dari 1, atau N = 1.
-   - Program akan menampilkan solusi untuk masalah **Knights Tour** berdasarkan ukuran papan yang diberikan.
-
-2. **Input**: Masukkan nilai integer untuk N yang lebih besar atau sama dengan 5, atau N = 1.
-
-   Contoh input: nput N (ukuran board NxN, N == 1 || N >= 5): 5
+   <br> <br>
 
 
-3. **Output**:
-- **Visualisasi Board**: Program akan mencetak papan catur NxN dengan urutan langkah yang diambil oleh kuda.
-- **Urutan Langkah**: Menampilkan urutan langkah kuda dalam notasi catur standar (misalnya a1, b2, dst).
-- **Status Solusi**: Menyebutkan apakah solusi yang ditemukan adalah **open tour** atau **closed tour**.
 
 ## Penjelasan Kode
 
